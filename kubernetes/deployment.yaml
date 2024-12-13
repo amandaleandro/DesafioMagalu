@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: helloworld
-        image: 123456789012.dkr.ecr.us-west-2.amazonaws.com/helloworld:${{ github.sha }}
+        image: ${{ secrets.ECR_REGISTRY }}/helloworld:${{ github.sha }}
         ports:
         - containerPort: 80
