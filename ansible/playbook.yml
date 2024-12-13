@@ -1,0 +1,22 @@
+- name: Provision EKS Cluster
+  hosts: localhost
+  tasks:
+    - name: Create EKS Cluster using Terraform
+      shell: |
+        terraform init
+        terraform apply -auto-approve
+      args:
+        chdir: /path/to/terraform/config
+
+    - name: Install kubectl
+      package:
+        name: kubectl
+        state: present
+
+    - name: Configure kubectl
+      shell: aws eks update-kubeconfig --name example-cluster
+
+    - name: Deploy Application
+      shell: |
+        kubectl apply -f /path/to/kubernetes/deployment.yaml
+        kubectl apply -f /path/to/kubernetes/service.yaml
