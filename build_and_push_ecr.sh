@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Variáveis
-AWS_REGION="us-west-2"
-ECR_REGISTRY="123456789012.dkr.ecr.us-west-2.amazonaws.com" # Substitua pelo seu ECR Registry URI
+AWS_REGION="us-east-1"
+ECR_REGISTRY="https://084828601272.signin.aws.amazon.com/"
 ECR_REPOSITORY="helloworld"
 IMAGE_TAG=$(git rev-parse --short HEAD)
 
